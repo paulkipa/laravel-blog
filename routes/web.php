@@ -19,14 +19,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');*/
+})->name('dashboard');
 
 Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Auth::routes();
-
+Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\PostController::class, 'index'])->name('home');
 Route::get('post/create', [App\Http\Controllers\PostController::class, 'create']);
 Route::post('post', [App\Http\Controllers\PostController::class, 'store']);
