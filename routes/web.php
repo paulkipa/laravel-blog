@@ -26,8 +26,8 @@ Route::get('/', function () {
 });*/
 
 Auth::routes();
-Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('home');
-Route::get('/home', [App\Http\Controllers\PostController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\PostController::class, 'logout'])->name('home.login');
+Route::get('/home', [App\Http\Controllers\PostController::class, 'index'])->name('home')->middleware('auth');
 Route::get('post/create', [App\Http\Controllers\PostController::class, 'create']);
 Route::post('post', [App\Http\Controllers\PostController::class, 'store']);
 Route::get('post/{post}/edit', [App\Http\Controllers\PostController::class, 'edit']);

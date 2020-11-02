@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ class PostController extends Controller
         return view('posts.index', compact('posts'));
     }
 
-    
+
 
     public function create()
     {
@@ -25,14 +26,14 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required',
             'body' => 'required',
-            ]);
+        ]);
         $post = new Post();
         $post->title = $request->title;
         $post->body = $request->body;
         $post->published_at = $request->published_at;
 
         $post->save();
-        return redirect('/home')->with('success','Post created successfully!');
+        return redirect('/home')->with('success', 'Post created successfully!');
     }
 
     public function show(Post $post)
@@ -50,18 +51,22 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required',
             'body' => 'required',
-            ]);
+        ]);
         $post->title = $request->title;
         $post->body = $request->body;
         $post->published_at = $request->published_at;
 
         $post->save();
-        return redirect('/home')->with('success','Post updated successfully!');
+        return redirect('/home')->with('success', 'Post updated successfully!');
     }
 
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect('/home')->with('success','Post deleted successfully!');
+        return redirect('/home')->with('success', 'Post deleted successfully!');
+    }
+    public function logout()
+    {
+        return redirect('/login');
     }
 }
