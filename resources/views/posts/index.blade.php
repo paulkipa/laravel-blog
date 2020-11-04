@@ -10,7 +10,8 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Title</th>
+                            <th width="20%">Title</th>
+                            <th width="40%">Description</th>
                             <th>Published At</th>
                             <th>Created at</th>
                             <th colspan="2">Action</th>
@@ -21,15 +22,17 @@
                         <tr>
                             <td>{{ $post->id }}</td>
                             <td>{{ $post->title }}</td>
+                            <td>{{ $post->body}}</td>
                             <td>{{ date('Y-m-d', strtotime($post->published_at)) }}</td>
                             <td>{{ date('Y-m-d', strtotime($post->created_at)) }}</td>
                             <td>
-                            <a href="post/{{$post->id}}" class="btn btn-primary">Show</a>
-                            <a href="post/{{$post->id}}/edit" class="btn btn-primary">Edit</a>
+                            <a href="post/{{$post->id}}" ><i class="fa fa-eye"></i></a>
+                            <a href="post/{{$post->id}}/edit"><i class="fa fa-edit"></i></a>
+
                             <form action="post/{{$post->id}}" method="post" class="d-inline">
                                 {{ csrf_field() }}
                                 @method('DELETE')
-                                <button class="btn btn-danger" type="submit">Delete</button>
+                                <button class="btn btn-outline-danger" type="submit"><i class="fa fa-trash"></i></button>
                             </form>
                             </td>
                         </tr>
