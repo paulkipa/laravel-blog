@@ -2,9 +2,86 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <DIV class="container-fluid">
+        <div class="row">
+            <!-- Column -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Deposits</h4>
+                        <div class="text-right">
+                            <h2 class="font-weight-light mb-0"><i class="ti-arrow-up text-success"></i> 120,000.00</h2>
+                            <span class="text-muted">Total Deposits</span>
+                        </div>
+                        <span class="text-success"></span>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Savings</h4>
+                        <div class="text-right">
+                            <h2 class="font-weight-light mb-0"><i class="ti-arrow-up text-info"></i> 5,000</h2>
+                            <span class="text-muted">Withdrawable Savings</span>
+                        </div>
+                        <span class="text-info"></span>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Share Capital</h4>
+                        <div class="text-right">
+                            <h2 class="font-weight-light mb-0"><i class="ti-arrow-down text-danger"></i> 9,600.00</h2>
+                            <span class="text-muted">Normal Shares</span>
+                        </div>
+                        <span class="text-danger"></span>
+                        <div class="progress">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Loans</h4>
+                        <div class="text-right">
+                            <h2 class="font-weight-light mb-0"><i class="ti-arrow-up text-purple"></i> 8,000</h2>
+                            <span class="text-muted">Outstanding Loans</span>
+                        </div>
+                        <span class="text-purple"></span>
+                        <div class="progress">
+                            <div class="progress-bar bg-dark" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+
+        </div>
+        <div class="row">
+            Our Chart Goes Here
+        </div>
+
+    </DIV>
+{{--     <div class="row justify-content-center">
     <div class="col-12">
-                <a href="post/create" class="btn btn-primary mb-2">Create Post</a> 
+                <a href="post/create" class="btn btn-success mb-2">Create Post</a> 
                 <br>
                 <table class="table table-bordered">
                     <thead>
@@ -45,6 +122,6 @@
                     {{$posts->links()}}
                 </div>
             </div>
-    </div>
+    </div> --}}
 </div>
 @endsection

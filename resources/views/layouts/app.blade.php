@@ -15,7 +15,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -24,10 +24,10 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-faded shadow-lg">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand" href="{{ url('/') }}">SAMARET SACCO LIMITED
+                    {{-- {{ config('app.name', 'Laravel') }} --}}
                 </a>
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}" title="kipaap">
@@ -36,12 +36,32 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/') }}">Home</a></li>
-                        @if (!Auth::guest())
-                            <li><a href="{{ route('posts.create') }}">New Article</a></li>
-                         @endif
-                         <li><a href="post/create" class="fa fa-trash">Create Post</a> </li>
+                    <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
+                        {{-- <li><a href="post/create" class="btn btn-outline-success"><i class="fa fa-home"></i>Create Post</a> </li> --}}
+                        <li class="nav-item"><a class="nav-link" href="/"><i class="fa fa-home"></i><span>Dashboard</span></a>
+                        </li>
+                                               
+                        <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="" data-toggle="dropdown"><i class="fa fa-money"></i><span>Loans</span></a>
+                            <ul class="dropdown-menu">
+                                <li data-menu=""><a class="dropdown-item" href="bulkstatementxls" data-toggle=""><i class="fa fa-edit"></i><span>Loan Application</span></a>
+                                </li>
+                                <li data-menu=""><a class="dropdown-item" href="purchase_report" data-toggle=""><i class="fa fa-archive"></i><span>View Loans</span></a>
+                                </li>
+                                <li data-menu=""><a class="dropdown-item" href="customer_report" data-toggle=""><i class="fa fa-group"></i><span>Loan Guarantors</span></a>
+                                </li>
+                                <li data-menu=""><a class="dropdown-item" href="purchase_report?expired=1" data-toggle=""><i class="fa fa-exclamation-circle"></i><span>Loan Statement</span></a>
+                                </li>
+                            </ul>
+
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="/post/create"><i class="fa fa-money"></i><span>Guarantors</span></a>
+                        </li>                
+                        <li class="nav-item"><a class="nav-link" href="/"><i class="fa fa-clipboard"></i><span>Statements</span></a>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="/"><i class="fa fa-cogs"></i><span>Other Requests</span></a>
+                        </li>
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -62,11 +82,14 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('register') }}">
+                                    {{ __('Profile') }}
+                                </a>
+
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
