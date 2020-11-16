@@ -35,6 +35,11 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    @guest
+                    @if (Route::has('register'))
+
+                    @endif
+                    @else
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
                         {{-- <li><a href="post/create" class="btn btn-outline-success"><i class="fa fa-home"></i>Create Post</a> </li> --}}
@@ -63,6 +68,8 @@
                         <li class="nav-item"><a class="nav-link" href="/"><i class="fa fa-cogs"></i><span>Other Requests</span></a>
                         </li>
                     </ul>
+                    
+                    @endguest
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -74,7 +81,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                        @endif
                         @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -82,7 +89,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('register') }}">
+                                <a class="dropdown-item" href="{{ route('profile') }}">
                                     {{ __('Profile') }}
                                 </a>
 
