@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\memberController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,11 +27,16 @@ Route::get('/', function () {
 });*/
 
 Auth::routes();
-Route::get('/', [App\Http\Controllers\PostController::class, 'logout'])->name('home.login');
-Route::get('/home', [App\Http\Controllers\PostController::class, 'index'])->name('home');
-Route::get('/post/create', [App\Http\Controllers\PostController::class, 'create'])->name('posts.create');
-Route::post('/post', [App\Http\Controllers\PostController::class, 'store']);
-Route::get('/post/{post}/edit', [App\Http\Controllers\PostController::class, 'edit']);
-Route::get('/post/{post}', [App\Http\Controllers\PostController::class, 'show']);
-Route::put('/post/{post}', [App\Http\Controllers\PostController::class, 'update']);
-Route::delete('/post/{post}', [App\Http\Controllers\PostController::class, 'destroy']);
+Route::get('/', [PostController::class, 'logout'])->name('home.login');
+Route::get('/home', [PostController::class, 'index'])->name('home');
+Route::get('/post/create', [PostController::class, 'create'])->name('posts.create');
+Route::post('/post', [PostController::class, 'store']);
+Route::get('/post/{post}/edit', [PostController::class, 'edit']);
+Route::get('/post/{post}', [PostController::class, 'show']);
+Route::put('/post/{post}', [PostController::class, 'update']);
+Route::delete('/post/{post}', [PostController::class, 'destroy']);
+Route::get('/profile/{memberid}',[MemberController::class,'index'])->name('profile.index');
+
+Route::get('/welcome',function(){
+	return view('welcomeagain');
+});
